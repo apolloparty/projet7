@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+    #coordinates {
+       transition-delay: 2s;
+    }
+    #main-title {
+      background-color: blue;
+    }
+    #main-text {
+      font-size: 0.8em;
+    }
+  </style>
+  <title>Grandpy Chatbot (v1)</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/spinner.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB87XtWBnZRETVCp7WIKUEKiIw1WdSSyZQ&callback=initMap" async defer></script>
+</head>
+<body>
+
+<header class="masthead">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1  class="display-4">Grandpy</h1>
+    <hr class="my-4">
+    <p id="main-text" class="lead">Bienvenue sur Grandpy, je suis un chatbot te permettant d'avoir des informations sur un nom de lieu, une ville précise.<br>
+        Tu peux me poser la question que tu souhaites, j'y répondrais avec grand plaisir ! <br><br>
+        Je suis un peu vieux, mes questions qui me sont posées doivent avoir une ponctuation française et un langage français strict, sinon je ne comprend pas... <br>
+        Noublie pas que les noms de lieux/d'entreprises ou nom de villes sont composées par des <b>majuscules</b> .<br>
+        Amuse-toi bien ! </p>
+  </div>
+</div>
+</header>
+
+<section class="py-1">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-left">
+          <div id="user" class="input-group mb-3">
+            <input id="message" type="text" class="form-control" placeholder="Que souhaites-tu savoir ?" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button id="send" class="btn btn-outline-secondary" type="button" id="button-addon2">Envoyer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-1">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-left">
+          <div id="loading">
+            <div id="coordinates"></div>
+            <div id="map"></div>
+          </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="py-1">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-left">
+          <div id="wikitext"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+</body>
+</html>
