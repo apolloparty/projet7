@@ -30,6 +30,23 @@ class Wikipedia:
         
         return wikititle
 
+    def wikilink(self):
+        """
+        """
+        url = "https://fr.wikipedia.org/w/api.php"
+        params = {
+            "action": "query",
+            "prop": "info|extracts",
+            "titles": f"{self.city}",
+            "inprop": "url",
+            "formatversion": "2",
+            "format": "json"
+        }
+        req = requests.get(url, params)
+        extracted = json.loads(req.content.decode('UTF-8'))
+        link = extracted['query']['pages'][0]['fullurl']
+        return link
+
     def wikipage(self):
         """
         Call wikipedia API with city/place as parameter and report the first title

@@ -22,8 +22,9 @@ def main_interface():
     wikititle = Wikipedia.Wikipedia(city).title()
     title = Wikipedia.Wikipedia(city).wikipage()
     wikitext = Wikipedia.Wikipedia(city).wikiextract(title)
-    print(city)
-    return make_response(jsonify({"myCity": city}, {"myList": coordinates}, {"myText": wikitext}), 200)
+    link = Wikipedia.Wikipedia(city).wikilink()
+    print(link)
+    return make_response(jsonify({"myCity": city}, {"myList": coordinates}, {"myText": wikitext}, {"myTitle": link}), 200)
 @app.after_request
 def add_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
