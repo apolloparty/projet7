@@ -2,7 +2,7 @@ $("document").ready(function(){
     $("#send").click(function(){
         var message = $("#message").val();
         $.ajax({
-            url: "http://localhost:5000/api/",
+            url: "https://grandpytest.herokuapp.com/api/",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({"message": message})
