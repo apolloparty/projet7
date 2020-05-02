@@ -17,7 +17,7 @@ $("document").ready(function(){
             var myTitle = data[3]['myTitle']
             console.log(myTitle)
             setTimeout(function(){ 
-                document.getElementById("wikitext").innerHTML = "<p>" + myText + myTitle +"</p>"; }, 1000);
+                document.getElementById("wikitext").innerHTML = "<p>" + myText +"</p> <a href=\""+myTitle+"\">Lien Wikipedia</a>"; }, 1000);
         }).done(function(data) {
             var myCity = data[0]['myCity']
             var myList = data[1]['myList']
