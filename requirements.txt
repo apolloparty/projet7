@@ -1,3 +1,2 @@
-Python==3.6.9
-Flask==0.8
+Flask==1.1.1
 Werkzug==0.16.1
