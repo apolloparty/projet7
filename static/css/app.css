@@ -1,0 +1,13 @@
+#map {
+    height: 400px;
+    width: 100%;
+  }
+  #coordinates {
+     transition-delay: 2s;
+  }
+  #main-title {
+    background-color: blue;
+  }
+  #main-text {
+    font-size: 0.8em;
+  }
