@@ -26,7 +26,7 @@ class Maps:
         req = requests.get(url, params)
         extracted = json.loads(req.content.decode('UTF-8'))
         completeName = \
-                path = os.path.join("projet7/ressources/temp/extracted.json")
+                path = os.path.join("ressources/temp/extracted.json")
         f = open(completeName, "w")
         f.write(json.dumps(extracted))
         f.close()

@@ -11,7 +11,7 @@ class Parser:
         """
         Put a JSON stopwords list into an exploitable python list
         """
-        path = "projet7/ressources/fr-split/fr.json"
+        path = "ressources/fr-split/fr.json"
         with open(path, encoding='utf-8') as french:
             words = json.load(french) #JSON to list
 
