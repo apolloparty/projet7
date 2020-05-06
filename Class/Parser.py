@@ -27,8 +27,11 @@ class Parser:
         li = []
         values = []
         dictionary = {}
-
-        if self.split_words[0][0].isupper():
+        x = (len(self.split_words))
+        y = 0
+        if x == 2 or x == 1:
+                values.append(self.split_words[i])
+        if self.split_words[0][0].isupper:
                 li.append(0)
         while i != len(self.split_words):
             temp = words.count(f"{(self.split_words[i])}") #count stop words
@@ -43,7 +46,12 @@ class Parser:
             elif temp == 0 and i != 0: #Ignored
                 li.append(0)
             i = i + 1
-        #dictionary = dict(zip(self.split_words, li))
+        dictionary = dict(zip(self.split_words, li))
+        z = len(values) - 1 #number of last word
+        for i in values[z]:
+            if i == "." or i =="!" or i =="?":
+                values[z] = values[z][:-1] #remove last character
         city = ' '.join([str(elem) for elem in values])
+        print(city)
 
-        return city
+        return dictionary, city
