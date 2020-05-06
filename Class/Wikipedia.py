@@ -2,6 +2,7 @@ import requests
 import json
 import sys
 
+
 class Wikipedia:
     def __init__(self, city):
         self.city = city
@@ -10,7 +11,7 @@ class Wikipedia:
         """
         Capitalize first letter from a place/city and after
         every space.
-        ie: new york => New York 
+        ie: new york => New York
         """
         info = 0
         temp1 = ""
@@ -27,7 +28,7 @@ class Wikipedia:
         if temp2[0].upper() != temp2[0]:
             temp2[0] = temp2[0].capitalize()
         wikititle = temp1.join(temp2)
-        
+
         return wikititle
 
     def wikilink(self):
@@ -49,8 +50,8 @@ class Wikipedia:
 
     def wikipage(self):
         """
-        Call wikipedia API with city/place as parameter and report the first title
-        result from wikipedia
+        Call wikipedia API with city/place as parameter
+        and report the first title result from wikipedia
         """
         url = "https://fr.wikipedia.org/w/api.php"
         params = {
@@ -88,8 +89,6 @@ class Wikipedia:
         }
         req = requests.get(url, params)
         extracted = json.loads(req.content.decode('UTF-8'))
-        #indent = json.dumps(extracted, indent = 4)
-        #print(extracted)
         temp = extracted["query"]["pages"][0]["extract"]
         extracted2 = temp.split('=')
         wikitext = extracted2[0]
@@ -100,7 +99,7 @@ class Wikipedia:
                     temp1.append(i)
                     temp1.append("<br>")
                 else:
-                    temp1.append(i)              
+                    temp1.append(i)
         wikitext = temp2.join(temp1)
 
         return wikitext

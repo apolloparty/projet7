@@ -10,6 +10,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('app.html')
+
+
 @app.route('/api/', methods=["POST"])
 def main_interface():
     response = request.get_json()
@@ -25,10 +27,14 @@ def main_interface():
     link = Wikipedia.Wikipedia(city).wikilink()
     print(link)
     return make_response(jsonify({"myCity": city}, {"myList": coordinates}, {"myText": wikitext}, {"myTitle": link}), 200)
+
+
 @app.after_request
 def add_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     return response
+
+
 if __name__ == '__main__':
     app.run(debug=True)

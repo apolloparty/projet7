@@ -5,11 +5,14 @@ import Class.Wikipedia as Wikipedia
 import pytest
 import json
 
+
 def hello(name):
     return "Hello " + name
 
+
 def test_hello():
     assert hello("Céline") == "Hello Céline"
+
 
 class TestUser:
     name = "Où se trouve New York ?"
@@ -17,6 +20,7 @@ class TestUser:
     def test_splitter(self):
         assert User.User("Où se trouve New York ?").splitter() == \
             ["Où", "se", "trouve", "New", "York", "?"]
+
 
 class TestParser:
     split_words = ["Où", "se", "trouve", "New", "York", "?"]
@@ -27,6 +31,7 @@ class TestParser:
     def test_compare(self):
         assert Parser.Parser(self.split_words).compare(self.words) == \
             "New York"
+
 
 class TestMaps:
     city = "New York"
@@ -39,6 +44,7 @@ class TestMaps:
 
     def test_placeextract(self):
         assert Maps.Maps(self.city).placeextract(self.coordinates) == None
+
 
 class TestWikipedia:
     city = "New york"
@@ -70,6 +76,5 @@ class TestWikipedia:
             return Mockresponse()
 
             monkeypatch.setattr(requests, 'get', mock_get)
-            assert Wikipedia.Wikipedia(self.city).wikipage() == (200, 'http://www.testurl.com')
-
-    
+            assert Wikipedia.Wikipedia(self.city).wikipage() == \
+                (200, 'http://www.testurl.com')

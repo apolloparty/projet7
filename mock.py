@@ -1,8 +1,12 @@
+
+
 def square(value):
     return value ** 2
 
-def cube(value): 
+
+def cube(value):
     return value ** 3
 
-def main(value): 
+
+def main(value):
     return square(value) + cube(value)

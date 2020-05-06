@@ -3,8 +3,8 @@ import json
 import os.path
 import sys
 
-class Maps:
 
+class Maps:
     def __init__(self, city):
         self.city = city
 
@@ -26,7 +26,7 @@ class Maps:
         req = requests.get(url, params)
         extracted = json.loads(req.content.decode('UTF-8'))
         completeName = \
-                path = os.path.join("ressources/temp/extracted.json")
+            path = os.path.join("ressources/temp/extracted.json")
         f = open(completeName, "w")
         f.write(json.dumps(extracted))
         f.close()
@@ -39,21 +39,21 @@ class Maps:
         """
         Call Google maps API with longitude and lattitude to determine from coordinates which is it.
         Function save in ressources folder the JSON.
-        Mainly unfunctional due to distance ranked system from API. 
+        Mainly unfunctional due to distance ranked system from API.
         """
         url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
         params = {
             "type": f"tourist_attraction|point_of_interest",
-            #"keyword": f"{splitted}",
+            # "keyword": f"{splitted}",
             "location": f"{coordinates[0]}, {coordinates[1]}",
             "rankby": "distance",
-            #"radius": "1500",
+            # "radius": "1500",
             "key": "AIzaSyB87XtWBnZRETVCp7WIKUEKiIw1WdSSyZQ"
         }
         req = requests.get(url, params)
         extracted = json.loads(req.content.decode('UTF-8'))
         completeName = \
-                path = os.path.join("ressources/temp/extracted2.json")
+            path = os.path.join("ressources/temp/extracted2.json")
         f = open(completeName, "w")
         f.write(json.dumps(extracted))
         f.close()
