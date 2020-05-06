@@ -54,4 +54,4 @@ class Parser:
         city = ' '.join([str(elem) for elem in values])
         print(city)
 
-        return city
+        return dictionary, city
